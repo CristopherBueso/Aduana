@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Aduanas.Models.Persona>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Registro de Personas</h1>
+
+<p>
+    <a asp-action="Create">Registrar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Identidad
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Genero
+            </th>
+            <th>
+                Pais de Origen
+            </th>
+            <th>
+                ¨Pais Naturalizacion
+            </th>
+            <th>
+                Telefono
+            </th>
+            <th>
+                Correo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaisOrigen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaisNaturalizacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPersona">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPersona">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
